@@ -29,3 +29,8 @@ The actual binary is made to do only one transfer by client (then he sleeps)
     - 'make kill' if you feel there are too much containers running in background, after a test
     - 'make clean'
     - 'make prune' removes all build images/containers of your computer, radical, needs sometimes to reboot
+
+# Create a performance graph
+
+    - fill the hyperparameters of gen_graph.py
+    - 'make figure'

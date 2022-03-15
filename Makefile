@@ -12,6 +12,9 @@ build : gen_docker-compose gen_net_config
 run : build
 	sudo docker-compose up --detach --remove-orphans
 
+figure :
+	sudo python3 gen_graph.py
+
 sh :
 	sudo docker exec -ti server0 sh
 
@@ -23,6 +26,14 @@ result :
 
 attach : build
 	sudo docker-compose up --remove-orphans
+
+# Cleaning
+
+rm :
+	sudo docker rm $$(docker ps -a -q)
+
+stop :
+	sudo docker kill $$(docker ps -q)
 
 kill :
 	sudo docker kill $$(docker ps -a -q)
