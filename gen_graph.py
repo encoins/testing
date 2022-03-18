@@ -7,19 +7,19 @@ import matplotlib.pyplot as plt
 def main():
 
     #Hyperparameters
-    obj_min = 10 #min 1
-    obj_max = 11
-    servers_min = 3 #min 3
-    servers_max = 51
+    obj_min = 1 #min 1
+    obj_max = 100
+    servers_min = 10 #min 3
+    servers_max = 11
     transactions_per_client = 1
 
-    time_reload = 2
-    time_end = 0
+    time_reload = 0.5
+    time_end = 1
 
     DIR_FIG = "figures/"
     formatting = 'r-'
     resolution_fig = 500
-    x_label_step = 5
+    x_label_step = 10
 
     #Initializing graph arrays
     if obj_max-obj_min <= 1:
@@ -123,7 +123,10 @@ def simulation(servers, obj, transactions_per_client, servers_min, servers_max, 
         for proc in range(servers):
             cmd2 = "docker exec -ti server"+str(proc)+" cat result.txt"
             p = subprocess.Popen(cmd2, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-            Y[proc][obj-obj_min] = float(p.stdout.readline())/1000
+            try :
+            	Y[proc][obj-obj_min] = float(p.stdout.readline())/1000
+            except:
+            	Y[proc][obj-obj_min] = 0
 
     if graph_type == 1:
         cmd2 = "docker exec -ti server0 cat result.txt"
