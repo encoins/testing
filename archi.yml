@@ -1,14 +1,14 @@
 # Number of correct servers in your test
-S: 3
+S: 20
 
 # Number of byzantine servers in your test
 B: 0
 
 # Number of clients in your test
-C: 3
+C: 50
 
 # Interactive mode allows to communicate yourself with the servers, it should be a bit slower
-Interactive: false
+Interactive: true
 
 # Number of validated transactions to reach before simulation ends (0 means no end)
-Obj_transactions: 2
+Obj_transactions: 50

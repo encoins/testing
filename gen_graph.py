@@ -7,10 +7,10 @@ import matplotlib.pyplot as plt
 def main():
 
     #Hyperparameters
-    obj_min = 1 #min 1
-    obj_max = 100
-    servers_min = 10 #min 3
-    servers_max = 11
+    obj_min = 50 #min 1
+    obj_max = 51
+    servers_min = 3 #min 3
+    servers_max = 100
     transactions_per_client = 1
 
     time_reload = 0.5
